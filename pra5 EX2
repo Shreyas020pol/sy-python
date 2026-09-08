@@ -1,12 +1,43 @@
-print("**************** Invoice Frame ****************")
+print("========== Monthly Expense Tracker ==========")
 
-rows = 8
-cols = 30
+food = []
+travel = []
+shopping = []
 
-for i in range(rows):
-    for j in range(cols):
-        if i == 0 or i == rows - 1 or j == 0 or j == cols - 1:
-            print("*", end="")
-        else:
-            print(" ", end="")
-    print()
+while True:
+    print("\nExpense Categories:")
+    print("1. Food")
+    print("2. Travel")
+    print("3. Shopping")
+    print("4. Exit")
+
+    choice = int(input("Enter your choice (1-4): "))
+
+    if choice == 4:
+        break
+
+    amount = float(input("Enter Expense Amount: "))
+
+    if choice == 1:
+        food.append(amount)
+
+    elif choice == 2:
+        travel.append(amount)
+
+    elif choice == 3:
+        shopping.append(amount)
+
+    else:
+        print("Invalid Choice!")
+
+print("\n========== Monthly Expense Summary ==========")
+
+print("\nFood Expense Total     :", sum(food))
+print("Travel Expense Total   :", sum(travel))
+print("Shopping Expense Total :", sum(shopping))
+
+grand_total = sum(food) + sum(travel) + sum(shopping)
+
+print("--------------------------------------------")
+print("Grand Total Expense    :", grand_total)
+print("--------------------------------------------")
